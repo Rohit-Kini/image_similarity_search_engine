@@ -1,0 +1,25 @@
+models:
+  dinov2:
+    name: "facebook/dinov2-base"
+    device: "auto"
+  
+  dinov2_large:
+    name: "facebook/dinov2-large"
+    device: "auto"
+  
+  clip:
+    name: "openai/clip-vit-base-patch32"
+    device: "auto"
+
+database:
+  index_type: "flat"  # Options: flat, ivf, hnsw
+  save_path: "data/embeddings/index"
+
+search:
+  default_k: 10
+  batch_size: 32
+  similarity_threshold: 0.5
+
+preprocessing:
+  image_size: 224
+  normalize: true
