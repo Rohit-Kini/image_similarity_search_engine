@@ -3,9 +3,9 @@ from typing import List, Dict, Any, Optional, Union
 from PIL import Image
 import time
 
-from src.models.base_encoder import BaseImageEncoder
-from src.search.vector_db import VectorDatabase
-from src.search.similarity_metrics import SimilarityMetrics
+from models.base_encoder import BaseImageEncoder
+from search.vector_db import VectorDatabase
+from search.similarity_metrics import SimilarityMetrics
 
 class ImageSearchEngine:
     """

@@ -1,9 +1,10 @@
 import torch
 import torch.nn.functional as F
-from transformers import Dinov2Model, Dinov2ImageProcessor
+from transformers import AutoModelForImageClassification, AutoImageProcessor
 from PIL import Image
-from numpy as np
+import numpy as np
 from .base_encoder import BaseImageEncoder
+from typing import Union
 
 class DinoV2Encoder(BaseImageEncoder):
     """
@@ -22,8 +23,8 @@ class DinoV2Encoder(BaseImageEncoder):
         """
         Load the DinoV2 model.
         """
-        self.processor = Dinov2ImageProcessor.from_pretrained(self._model_name)
-        self.model = Dinov2Model.from_pretrained(self._model_name)
+        self.processor = AutoImageProcessor.from_pretrained(self._model_name)
+        self.model = AutoModelForImageClassification.from_pretrained(self._model_name)
         self.model.to(self.device)
         self.model.eval()
 
@@ -38,7 +39,7 @@ class DinoV2Encoder(BaseImageEncoder):
         Get the image preprocessing transform.
         
         Returns:
-            Dinov2ImageProcessor: The image processor for DinoV2.
+            AutoImageProcessor: The image processor for DinoV2.
         """
         return self.processor
     

@@ -4,6 +4,7 @@ from transformers import CLIPVisionModel, CLIPImageProcessor
 from PIL import Image
 import numpy as np
 from .base_encoder import BaseImageEncoder
+from typing import Union
 
 class CLIPEncoder(BaseImageEncoder):
     """

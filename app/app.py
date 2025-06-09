@@ -13,7 +13,7 @@ from models.clip_encoder import CLIPEncoder
 from search.search_engine import ImageSearchEngine
 from utils.config import Config
 
-@st_cache_resource
+@st.cache_resource
 def load_search_engine(model_type: str, index_path: str = None):
     """
     Load and cache search engine
@@ -46,7 +46,7 @@ def main():
 
         model_type = st.selectbox(
             "Select Model",
-            ["DINOV2", "CLIP"],
+            ["dinov2", "clip"],
             help="Choose the embedding model"
         )
 
@@ -56,7 +56,7 @@ def main():
             help="Path to the pre-built search index"
         )
 
-        k = st.sidebar("Number of results", 1, 50, 10)
+        k = st.slider("Number of results", 1, 50, 10)
 
         # Load Search Engine
         try:
