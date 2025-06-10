@@ -1,0 +1,3 @@
+[bandit]
+exclude_dirs = ["tests", "test", ".venv", "venv", "env"]
+skips = ["B101", "B601"]  # Skip assert_used and shell_injection_process_substitution for tests
